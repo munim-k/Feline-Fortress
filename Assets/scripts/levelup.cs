@@ -9,6 +9,8 @@ public class levelup : MonoBehaviour
     public catStats cat;
     public Transform spawnposition;
     public float length;
+    public GameObject particles;
+    public float height=3.5f;
 
     public void LevelUp()
     {
@@ -16,10 +18,15 @@ public class levelup : MonoBehaviour
         Quaternion rotation = spawnposition.rotation;
         if(cat.CanLevelUp()==true)
         {
+            
             Instantiate(tower, position,rotation);   
             cheese.transform.SetPositionAndRotation(cheese.transform.position + new Vector3(0, length, 0), cheese.transform.rotation);
             increaseheight();
             cat.catnip -= 200;
+            particles.transform.localScale += new Vector3(1,3.5f, 1);
+            GameObject particle= Instantiate(particles,tower.transform.position,tower.transform.rotation);
+            Debug.Log(particle.transform.localScale.y);
+            Destroy(particle,3.0f);
         }
     }
     void increaseheight()
