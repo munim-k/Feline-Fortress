@@ -8,12 +8,10 @@ public class Shoot : MonoBehaviour
     public GameObject spawnPoint;
     public float fireRate;
     float timer;
-
     void Start()
     {
 
     }
-
     // Update is called once per frame
     void Update()
     {
