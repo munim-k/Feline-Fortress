@@ -16,6 +16,7 @@ public class currencyscript : MonoBehaviour
     {
         Vector3 shootDirection = (cad.gameObject.transform.position - coins.gameObject.transform.position).normalized;
         coins.AddForce(shootDirection, ForceMode.Impulse);
+        
     }
 
     private void OnTriggerEnter(Collider other)
