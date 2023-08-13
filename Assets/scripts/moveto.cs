@@ -10,6 +10,7 @@ public class moveto : MonoBehaviour
     public GameObject particles;
     public GameObject currency;
     public catStats catStats;
+    public GameObject cad;
     private void OnCollisionEnter(Collision collision)
     {
      
@@ -23,11 +24,11 @@ public class moveto : MonoBehaviour
     void destroymouse()
     {
         Vector3 pos=this.gameObject.transform.position;
-        Quaternion rot=this.gameObject.transform.rotation;  
+        Vector3 direction = (cad.transform.position - this.gameObject.transform.position).normalized;
         GameObject particle = Instantiate(particles, this.transform.position, this.transform.rotation);
         Destroy(this.gameObject); 
         Destroy(particle, 0.5f);
-        GameObject curr=Instantiate(currency, pos, rot);
+        GameObject curr=Instantiate(currency, pos, Quaternion.LookRotation(direction));
         Destroy(curr, 1.5f);
         catStats.addcatnip();
     }

@@ -6,13 +6,11 @@ using UnityEngine.UI;
 
 public class catniptext : MonoBehaviour
 {
-    TextMeshProUGUI ButtonText;
     public catStats catstats;
     public int upgraderequirement;
     public Button upgradebutton;
     void Start()
     {
-        ButtonText = GetComponent<TextMeshProUGUI>();
         upgraderequirement = catstats.getupgraderequirements();
     }
     private void Update()

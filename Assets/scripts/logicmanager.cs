@@ -15,7 +15,6 @@ public class logicmanager : MonoBehaviour
     public GameObject pausebutton;
     public GameObject levelupbutton;
     public Canvas pausemenu;
-    public GameObject levelupbuttontext;
     public GameObject mousespawner;
     public GameObject healthbar;
     public void StartGame()

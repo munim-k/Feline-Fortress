@@ -428,7 +428,6 @@ MonoBehaviour:
   pausebutton: {fileID: 847866221}
   levelupbutton: {fileID: 1850332942}
   pausemenu: {fileID: 884414779}
-  levelupbuttontext: {fileID: 0}
   mousespawner: {fileID: 537763754}
   healthbar: {fileID: 930889697}
 --- !u!114 &154272490
@@ -1627,6 +1626,14 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2809350342240423121, guid: 1c2a277b9e8d39441bbd8057b889e5de, type: 3}
   m_PrefabInstance: {fileID: 119303867878194505}
   m_PrefabAsset: {fileID: 0}
+--- !u!33 &701126946
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701126943}
+  m_Mesh: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2005,7 +2012,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.8202128
+  m_Radius: 1.3
   m_Center: {x: 0.02, y: 0.05, z: 0}
 --- !u!23 &788178497
 MeshRenderer:
@@ -2163,7 +2170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &847866222
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3260,6 +3267,18 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2110507589104702730, guid: 53fc3318cc6fa3d4e88e9efe33fb2ab8, type: 3}
+      propertyPath: m_Height
+      value: 3.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110507589104702730, guid: 53fc3318cc6fa3d4e88e9efe33fb2ab8, type: 3}
+      propertyPath: m_Radius
+      value: 1.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110507589104702730, guid: 53fc3318cc6fa3d4e88e9efe33fb2ab8, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3129172143784695233, guid: 53fc3318cc6fa3d4e88e9efe33fb2ab8, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -4292,7 +4311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1464128489
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4501,6 +4520,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a4b2e73bf742e5046aaeec7b1d203c86, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5198f8af2f2fb74d81edc8ca9d255ce, type: 2}
     - target: {fileID: 919132149155446097, guid: a4b2e73bf742e5046aaeec7b1d203c86, type: 3}
       propertyPath: m_Name
       value: base
@@ -5156,13 +5179,14 @@ GameObject:
   - component: {fileID: 1850332946}
   - component: {fileID: 1850332945}
   - component: {fileID: 1850332944}
+  - component: {fileID: 1850332947}
   m_Layer: 5
   m_Name: levelup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1850332943
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5209,7 +5233,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.8352941}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -5278,6 +5302,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850332942}
   m_CullTransparentMesh: 1
+--- !u!114 &1850332947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850332942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e09158e9e75bec643b36f910ca0cb649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  catstats: {fileID: 1153100441}
+  upgraderequirement: 0
+  upgradebutton: {fileID: 1850332944}
 --- !u!1001 &1857626042
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5342,6 +5381,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -22.169
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 2c590095c3f99b44294f75bf042393a0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5198f8af2f2fb74d81edc8ca9d255ce, type: 2}
     - target: {fileID: 919132149155446097, guid: 2c590095c3f99b44294f75bf042393a0, type: 3}
       propertyPath: m_Name
       value: TOP
@@ -6129,6 +6172,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4044747952126694234, guid: 1c2a277b9e8d39441bbd8057b889e5de, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5198f8af2f2fb74d81edc8ca9d255ce, type: 2}
+    - target: {fileID: 5318226877980100447, guid: 1c2a277b9e8d39441bbd8057b889e5de, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5198f8af2f2fb74d81edc8ca9d255ce, type: 2}
     - target: {fileID: 7138105746214863312, guid: 1c2a277b9e8d39441bbd8057b889e5de, type: 3}
       propertyPath: m_CastShadows
       value: 0
@@ -6152,6 +6203,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2809350342240423121, guid: 1c2a277b9e8d39441bbd8057b889e5de, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 701126946}
     - targetCorrespondingSourceObject: {fileID: 1766698620580200320, guid: 1c2a277b9e8d39441bbd8057b889e5de, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1470254723}
