@@ -9,6 +9,7 @@ public class indicatorscript : MonoBehaviour
     float timer = 0;
     bool entered;
     public catStats cad;
+    public GameObject cat;
     void change(int num)
     {
         if (num ==1)
@@ -49,6 +50,7 @@ public class indicatorscript : MonoBehaviour
             {
                 change(3);
                 cad.damage();
+                timer = 0;
             }
             else if (timer > 1)
             {
@@ -59,6 +61,8 @@ public class indicatorscript : MonoBehaviour
                 change(1);
                 spriterenderer.gameObject.SetActive(true);
             }
+            Vector3 direction = (cat.transform.position- spriterenderer.gameObject.transform.position).normalized;
+            spriterenderer.gameObject.transform.rotation = Quaternion.LookRotation(direction);
         }
     }
 }

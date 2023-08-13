@@ -4,15 +4,23 @@ public class healthbar : MonoBehaviour
 {
     RectTransform bar;
     float segment;
+    private float move;
     private void Start()
     {
         bar = GetComponent<RectTransform>();
-        segment = bar.rect.width/20f;
+        segment = bar.sizeDelta.x/20f;
+        Debug.Log(bar.sizeDelta.x);
+        move = segment / 2f;
     }
     public void decreaseSize()
     {
-        bar.rect.size.Set(bar.rect.width-segment,bar.rect.height);
-        bar.rect.position.Set(bar.rect.x-segment,bar.rect.y);
+        
+        Vector2 sizedelta = bar.sizeDelta;
+        sizedelta.x -= segment;
+        bar.sizeDelta = sizedelta;
+        Vector2 newPosition = bar.anchoredPosition;
+        newPosition.x -= move;
+        bar.anchoredPosition = newPosition;
     }
 
 }

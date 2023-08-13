@@ -17,7 +17,7 @@ public class logicmanager : MonoBehaviour
     public Canvas pausemenu;
     public GameObject levelupbuttontext;
     public GameObject mousespawner;
-  //  public GameObject crosshair;
+    public GameObject healthbar;
     public void StartGame()
     {
         Actions.startaction();
@@ -29,7 +29,7 @@ public class logicmanager : MonoBehaviour
         pausebutton.SetActive(true);
         levelupbutton.gameObject.SetActive(true);
         mousespawner.SetActive(true);
-      //  crosshair.SetActive(true);
+        healthbar.SetActive(true);
     }
     public void PauseGame()
     {

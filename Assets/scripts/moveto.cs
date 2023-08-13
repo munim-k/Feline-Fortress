@@ -9,7 +9,7 @@ public class moveto : MonoBehaviour
     public int health = 20;
     public GameObject particles;
     public GameObject currency;
-   
+    public catStats catStats;
     private void OnCollisionEnter(Collision collision)
     {
      
@@ -29,6 +29,7 @@ public class moveto : MonoBehaviour
         Destroy(particle, 0.5f);
         GameObject curr=Instantiate(currency, pos, rot);
         Destroy(curr, 1.5f);
+        catStats.addcatnip();
     }
     
     private void FixedUpdate()
