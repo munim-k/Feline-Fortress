@@ -8,9 +8,9 @@ public class Shoot : MonoBehaviour
     public GameObject spawnPoint;
     public float fireRate;
     float timer;
+    public AudioSource audioSource;
     void Start()
     {
-
     }
     // Update is called once per frame
     void Update()

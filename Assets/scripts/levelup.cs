@@ -12,6 +12,7 @@ public class levelup : MonoBehaviour
     public float length;
     public GameObject particles;
     public float height=3.5f;
+    public AudioSource audioSource;
     
     public void LevelUp()
     {
@@ -33,7 +34,7 @@ public class levelup : MonoBehaviour
     }
     void increaseheight()
     {
-        
+        audioSource.Play();
         spawnposition.SetPositionAndRotation(spawnposition.position + new Vector3(0, length, 0), spawnposition.rotation*Quaternion.Euler(0,-25,0));
     }
 
