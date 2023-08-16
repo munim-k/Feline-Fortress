@@ -1,4 +1,6 @@
 
+using System;
+using TMPro;
 using UnityEngine;
 
 public class catStats : MonoBehaviour
@@ -8,7 +10,8 @@ public class catStats : MonoBehaviour
     public float maxHealth;
     public GameObject hitparticles;
     public healthbar healthbar;
-    public int upgraderequirement=50;
+    public int upgraderequirement;
+    public int kills;
     public bool CanLevelUp()
     {
         if(catnip>=upgraderequirement)
@@ -21,6 +24,11 @@ public class catStats : MonoBehaviour
     {
         catnip = 0;
         maxHealth = 200;
+        upgraderequirement = 50;
+    }
+    public void requirementincrease()
+    {
+        upgraderequirement += 50;
     }
     public void damage()
     {
@@ -29,6 +37,10 @@ public class catStats : MonoBehaviour
         hitparticles.SetActive(true);
         Invoke("deactivate",1.0f);
         healthbar.decreaseSize();
+        if(health<=0)
+        {
+            Actions.gamelost();
+        }
     }
     private void deactivate()
     {
@@ -41,5 +53,9 @@ public class catStats : MonoBehaviour
     public int getupgraderequirements()
     {
         return upgraderequirement;
+    }
+    public void increasekills()
+    {
+        kills++;
     }
 }

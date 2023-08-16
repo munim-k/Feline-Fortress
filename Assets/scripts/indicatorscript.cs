@@ -46,13 +46,13 @@ public class indicatorscript : MonoBehaviour
         if(entered)
         {
             timer += Time.deltaTime;
-            if (timer > 2)
+            if (timer > 1.15f)
             {
                 change(3);
                 cad.damage();
                 timer = 0;
             }
-            else if (timer > 1)
+            else if (timer > 0.5)
             {
                 change(2);
             }

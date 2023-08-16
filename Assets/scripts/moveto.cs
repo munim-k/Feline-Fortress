@@ -11,16 +11,16 @@ public class moveto : MonoBehaviour
     public GameObject currency;
     public catStats catStats;
     public GameObject cad;
-    private void OnCollisionEnter(Collision collision)
+    public mousespawner mousespawner;
+    private void OnTriggerEnter(Collider other)
     {
-     
-        if (collision.gameObject.tag == "bullet" || collision.gameObject.name == "bullet(clone)")
+
+        if (other.gameObject.tag == "bullet" || other.gameObject.name == "bullet(clone)")
         {
             this.health -= 10;
         }
-            
     }
-  
+
     void destroymouse()
     {
         Vector3 pos=this.gameObject.transform.position;
@@ -31,6 +31,7 @@ public class moveto : MonoBehaviour
         GameObject curr=Instantiate(currency, pos, Quaternion.LookRotation(direction));
         Destroy(curr, 1.5f);
         catStats.addcatnip();
+        catStats.increasekills();
     }
     
     private void FixedUpdate()
@@ -40,7 +41,10 @@ public class moveto : MonoBehaviour
         {
             if (this.gameObject.tag == "mouse" && this.gameObject.name != "mouse")
             {
-                destroymouse();
+                WaveCreator scr = mousespawner.GetComponent<WaveCreator>();
+                scr.totalKills++;
+                scr.kills++;
+                destroymouse();  
             }
         }
        

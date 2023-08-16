@@ -22,6 +22,7 @@ public class Shoot : MonoBehaviour
             GameObject bull = Instantiate(bullet,
 spawnPoint.transform.position, spawnPoint.transform.rotation);
             bull.SetActive(true);
+
         }
     }
 }

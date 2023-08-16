@@ -12,10 +12,12 @@ public class BulletShoot : MonoBehaviour
         Destroy(this.gameObject, 2);
     }
 
-    private void OnCollisionEnter(Collision collision)   
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.gameObject.CompareTag("ground"))
+        {
             Destroy(this.gameObject);
+        }
     }
 
     // Update is called once per frame

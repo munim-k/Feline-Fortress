@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class logicmanager : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class logicmanager : MonoBehaviour
     public Canvas pausemenu;
     public GameObject mousespawner;
     public GameObject healthbar;
+    public GameObject gameendpanel;
+    public catStats catstats;
+    public TextMeshProUGUI scoretext;
     public void StartGame()
     {
         Actions.startaction();
@@ -29,6 +33,7 @@ public class logicmanager : MonoBehaviour
         levelupbutton.gameObject.SetActive(true);
         mousespawner.SetActive(true);
         healthbar.SetActive(true);
+        SceneManager.UnloadSceneAsync(2);
     }
     public void PauseGame()
     {
@@ -42,6 +47,31 @@ public class logicmanager : MonoBehaviour
         canvas.gameObject.SetActive(true);
         Time.timeScale = 1f;
     }
-    
-   
+    void gamelost()
+    {
+        cat.SetActive(false);
+        mouse.SetActive(false);
+        canvas.gameObject.SetActive(false);
+        joystick.gameObject.SetActive(false);
+        pausebutton.SetActive(false);
+        levelupbutton.gameObject.SetActive(false);
+        mousespawner.SetActive(false);
+        healthbar.SetActive(false);
+        gameendpanel.SetActive(true);
+        scoretext.text = catstats.kills.ToString();
+
+    }
+    private void OnEnable()
+    {
+        Actions.gamelost += gamelost;
+    }
+    private void OnDisable()
+    {
+        Actions.gamelost -= gamelost;
+    }
+    public void backtomainmenu()
+    {
+        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
+    }    
 }

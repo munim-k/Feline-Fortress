@@ -11,6 +11,9 @@ TagManager:
   - mouse
   - Cad
   - mousebullet
+  - Exit
+  - Enter
+  - shootzone
   layers:
   - Default
   - TransparentFX
