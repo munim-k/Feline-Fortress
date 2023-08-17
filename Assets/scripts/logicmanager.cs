@@ -26,7 +26,7 @@ public class logicmanager : MonoBehaviour
 
     private void Start()
     {   
-        if(SceneManager.GetSceneByBuildIndex(3).IsValid() == false)
+        if(SceneManager.GetSceneByBuildIndex(2).IsValid() == false)
             SceneManager.LoadScene("main menu",LoadSceneMode.Additive);
     }
     public void StartGame()
