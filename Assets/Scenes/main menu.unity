@@ -548,9 +548,6 @@ MonoBehaviour:
   spritearray:
   - {fileID: 21300000, guid: 4c3f42f9d64ded945ab0a7b9c988f7c9, type: 3}
   - {fileID: 21300000, guid: 7234409e8cf9b644e8de7f7c1ae6721a, type: 3}
-  - {fileID: 21300000, guid: 0c1e6eee1929c0d41a94ae863f4edd24, type: 3}
-  - {fileID: 21300000, guid: ee75e3a28147d2e40a06a0f31261850c, type: 3}
-  - {fileID: 21300000, guid: a0fea9500c20b974585a88e5692dac28, type: 3}
 --- !u!114 &2122929392
 MonoBehaviour:
   m_ObjectHideFlags: 0

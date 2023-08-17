@@ -20,10 +20,9 @@ public class WaveCreator : MonoBehaviour
     void Update()
     {
         mainTimer += Time.deltaTime;
-        Debug.Log(miceSpawned);
-        Debug.Log(currWave);
-        Debug.Log(kills);
-        Debug.Log("End");
+       
+        
+        
         if (!levelEnd)
         {
             timer2 += Time.deltaTime;
@@ -38,6 +37,7 @@ timeInterval, ref miceSpawned);
 perWaveTime[currWave] || totalKills == totalMice))
             {
                 levelEnd = true;
+                Actions.gamewon();
             }
             else if ((kills == waves[currWave] || timer2 >=
 perWaveTime[currWave]) && currWave < waves.Length - 1)
@@ -50,5 +50,9 @@ perWaveTime[currWave]) && currWave < waves.Length - 1)
             }
 
         }
+        
+
     }
+
+
 }

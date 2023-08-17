@@ -7,15 +7,14 @@ using UnityEngine.UI;
 public class catniptext : MonoBehaviour
 {
     public catStats catstats;
-    public int upgraderequirement;
     public Button upgradebutton;
     void Start()
     {
-        upgraderequirement = catstats.getupgraderequirements();
+        
     }
     private void Update()
     {
-        if(catstats.catnip<upgraderequirement)
+        if(catstats.catnip<catstats.upgraderequirement)
         {
             upgradebutton.interactable = false;
         }

@@ -15,10 +15,11 @@ public class BulletShoot : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("ground"))
+        if(other.gameObject.CompareTag("ground")||other.gameObject.CompareTag("stair"))
         {
             Destroy(this.gameObject);
         }
+
     }
 
     // Update is called once per frame

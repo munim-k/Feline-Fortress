@@ -29,7 +29,6 @@ public class EnemyController : MonoBehaviour
         if (other.CompareTag("Cad"))
         {
             shoot= true;
-            Debug.Log("collided");
         }
     }
 

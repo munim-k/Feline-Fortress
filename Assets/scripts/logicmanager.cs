@@ -21,10 +21,13 @@ public class logicmanager : MonoBehaviour
     public GameObject gameendpanel;
     public catStats catstats;
     public TextMeshProUGUI scoretext;
+    public TextMeshProUGUI wonscoretext;
+    public GameObject gamewonpanel;
 
     private void Start()
-    {
-        SceneManager.LoadScene(5,LoadSceneMode.Additive);
+    {   
+        if(SceneManager.GetSceneByBuildIndex(3).IsValid() == false)
+            SceneManager.LoadScene("main menu",LoadSceneMode.Additive);
     }
     public void StartGame()
     {
@@ -38,7 +41,7 @@ public class logicmanager : MonoBehaviour
         levelupbutton.gameObject.SetActive(true);
         mousespawner.SetActive(true);
         healthbar.SetActive(true);
-        SceneManager.UnloadSceneAsync(5);
+        SceneManager.UnloadSceneAsync("main menu");
     }
     public void PauseGame()
     {
@@ -69,15 +72,32 @@ public class logicmanager : MonoBehaviour
     private void OnEnable()
     {
         Actions.gamelost += gamelost;
+        Actions.gamewon += gamewon;
     }
     private void OnDisable()
     {
         Actions.gamelost -= gamelost;
+        Actions.gamewon -= gamewon;
     }
     public void backtomainmenu()
     {
         Time.timeScale = 1;
         SceneManager.LoadSceneAsync(0);
-        SceneManager.LoadSceneAsync(5, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("main menu", LoadSceneMode.Additive);
     }    
+    public void gamewon()
+    {
+        cat.SetActive(false);
+        mouse.SetActive(false);
+        canvas.gameObject.SetActive(false);
+        joystick.gameObject.SetActive(false);
+        pausebutton.SetActive(false);
+        levelupbutton.gameObject.SetActive(false);
+        mousespawner.SetActive(false);
+        healthbar.SetActive(false);
+        gamewonpanel.SetActive(true);
+        wonscoretext.text = catstats.kills.ToString();
+        Time.timeScale = 0;
+    }
+
 }

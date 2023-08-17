@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class movemouse : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class movemouse : MonoBehaviour
     public float force;
     private CharacterController controller;
     public Vector3 directionForPortal;
+    bool teleport;
+    Vector3 tpposition;
     
     private void Start()
     {
@@ -25,15 +28,22 @@ radius, transform.localPosition.y, Mathf.Sin(angle) * radius);
         transform.right = -transform.forward;
         controller.SimpleMove(tangent * force);
         directionForPortal = tangent;
+        if(teleport)
+        {
+            transform.position = tpposition;
+            teleport = false;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Enter"))
         {
-            transform.position = new
+            Debug.Log("teleport");
+            tpposition = new
 Vector3(transform.position.x,
 other.transform.Find("Exit").transform.position.y,
 transform.position.z);
+            teleport= true;
         }
         if(other.CompareTag("cheese"))
         {
@@ -41,4 +51,5 @@ transform.position.z);
             Debug.Log("cheese touched");
         }
     }
+   
 }

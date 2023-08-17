@@ -8,8 +8,8 @@ public class healthbar : MonoBehaviour
     private void Start()
     {
         bar = GetComponent<RectTransform>();
-        segment = bar.sizeDelta.x/20f;
-        Debug.Log(bar.sizeDelta.x);
+        segment = bar.sizeDelta.x/10f;
+        
         move = segment / 2f;
     }
     public void decreaseSize()
