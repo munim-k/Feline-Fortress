@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class moveto : MonoBehaviour
 {
-    public int health = 20;
+    public int health = 30;
     public GameObject particles;
     public GameObject currency;
     public catStats catStats;

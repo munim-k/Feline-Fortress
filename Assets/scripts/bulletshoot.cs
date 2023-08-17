@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class BulletShoot : MonoBehaviour
 {
-    public Rigidbody rb;
+    private Rigidbody rb;
     public float speed;
     void Start()
     {
+        rb=GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * speed);
         Destroy(this.gameObject, 2);
     }

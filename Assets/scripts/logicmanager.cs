@@ -21,6 +21,11 @@ public class logicmanager : MonoBehaviour
     public GameObject gameendpanel;
     public catStats catstats;
     public TextMeshProUGUI scoretext;
+
+    private void Start()
+    {
+        SceneManager.LoadScene(5,LoadSceneMode.Additive);
+    }
     public void StartGame()
     {
         Actions.startaction();
@@ -33,7 +38,7 @@ public class logicmanager : MonoBehaviour
         levelupbutton.gameObject.SetActive(true);
         mousespawner.SetActive(true);
         healthbar.SetActive(true);
-        SceneManager.UnloadSceneAsync(2);
+        SceneManager.UnloadSceneAsync(5);
     }
     public void PauseGame()
     {
@@ -59,7 +64,7 @@ public class logicmanager : MonoBehaviour
         healthbar.SetActive(false);
         gameendpanel.SetActive(true);
         scoretext.text = catstats.kills.ToString();
-
+        Time.timeScale = 0;
     }
     private void OnEnable()
     {
@@ -71,7 +76,8 @@ public class logicmanager : MonoBehaviour
     }
     public void backtomainmenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadSceneAsync(0);
-        SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(5, LoadSceneMode.Additive);
     }    
 }
